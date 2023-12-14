@@ -1,8 +1,10 @@
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .header {
   display: flex;
@@ -23,5 +25,5 @@ body {
   width: 500px;
   height: 500px;
   border: 1px solid black;
-  display: inline-block;
+  display: grid;
 }
