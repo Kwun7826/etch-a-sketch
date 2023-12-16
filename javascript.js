@@ -1,5 +1,21 @@
+let click = false;
 document.addEventListener("DOMContentLoaded", function() {
    createContainer(16);
+
+    document.querySelector('body').addEventListener('click', function(e){
+        if (e.target.tagName != 'BUTTON'){
+            click = !click;
+            let draw = document.querySelector('#draw')
+            if(click){
+                draw.innerHTML = 'Now you can draw';
+            }else {
+                draw.innerHTML = 'you\'re not allowed to draw';
+            }
+        }
+    })
+   
+
+   
    const size = document.querySelector('.size');
    size.addEventListener('click', function(){
     const theSize = getSize();
@@ -37,11 +53,13 @@ function getSize(){
 let color = 'black';
 
 function colorGrid(){
-    if (color == 'random'){
-        this.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
-    }else {
-        this.style.backgroundColor = 'black';
-    }
+    if(click){
+        if (color == 'random'){
+            this.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+        }else {
+            this.style.backgroundColor = 'black';
+        }
+}        
 }
 function setColor(colorChoice){
    color = colorChoice;
@@ -51,3 +69,6 @@ function resetBoard(){
   let blank = document.querySelectorAll('div');
   blank.forEach((div) => div.style.backgroundColor = 'white'
   )}
+
+ 
+  
